@@ -34,15 +34,31 @@ function hasReached(element) {
     return false;
 }
 
+function updateCount(num, maxNum) {
+    let currentNum = +num.innerText;
+
+    if (currentNum < maxNum) {
+        num.innerText = currentNum + 1;
+        setTimeout(() => {
+            updateCount(num, maxNum);
+        }, 12);
+    }
+
+}
+
 function skillCounter() {
     if (!hasReached(first_skill)) return;
 
-    sk_counters.forEach((couter, i) => {
-        let target = +couter.dataset.target;
+    sk_counters.forEach((counter, i) => {
+        let target = +counter.dataset.target;
         let strokeValue = 427 - 427 * (target / 100);
         //console.log(strokeValue);
 
         progress_bars[i].style.setProperty("--target", strokeValue);
+
+        setTimeout(() => {
+            updateCount(counter, target)
+        }, 400);
     });
 
     progress_bars.forEach((p) => (p.style.animation = "progress 2s ease-in-out forwards"));
