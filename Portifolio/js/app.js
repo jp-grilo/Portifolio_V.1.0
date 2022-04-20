@@ -8,10 +8,18 @@ function stickyNavbar(){
     //console.log(window.pageYOffset>0);
 }
 
-//stickyNavbar();
+stickyNavbar();
 window.addEventListener("scroll", stickyNavbar);
 
 /* --------------- Reveal Animation --------------- */
+
+let sr = ScrollReveal({
+    duration: 2300,
+    distance: "60px"
+});
+
+sr.reveal(".showcase-info", {delay:700});
+sr.reveal(".showcase-image", {origin:"top", delay:700});
 
 /* --------------- Skills Progress Bar Animation --------------- */
 
