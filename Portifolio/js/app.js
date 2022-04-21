@@ -1,11 +1,27 @@
+/* --------------- Constants used --------------- */
+
+// Navbar
 const header = document.querySelector("header");
 
+// Animação dos circulos
 const first_skill = document.querySelector(".skill:first-child");
 const sk_counters = document.querySelectorAll(".counter span");
 const progress_bars = document.querySelectorAll(".skills svg circle");
 
+// Animação trabalhos feitos
 const ml_section = document.querySelector(".milestones");
 const ml_counters = document.querySelectorAll(".number span");
+
+// Animação popup portifólio
+
+const prt_section = document.querySelector(".portifolio");
+const zoom_icons = document.querySelectorAll(".zoom-icon");
+const modal_overlay = document.querySelector(".modal-overlay");
+const images = document.querySelectorAll(".images img");
+const next_btn = document.querySelector(".next-btn");
+const prev_btn = document.querySelector(".prev-btn");
+
+/* --------------- Events --------------- */
 
 window.addEventListener("scroll", stickyNavbar);
 
@@ -14,34 +30,13 @@ window.addEventListener("scroll", () => {
     if (!mlPlayed) mlCounter();
 })
 
+/* --------------- Functions --------------- */
+
 function hasReached(element) {
     let topPosition = element.getBoundingClientRect().top;
 
     if (window.innerHeight >= topPosition + element.offsetHeight) return true;
     return false;
-}
-
-function updateCount(num, maxNum) {
-    let currentNum = +num.innerText;
-    if (currentNum < maxNum) {
-        num.innerText = currentNum + 1;
-        setTimeout(() => {
-            updateCount(num, maxNum);
-        }, 12);
-    }
-}
-
-function updateCountMl(num, maxNum) {
-
-    let currentNum = +num.innerText;
-    if (currentNum < maxNum) {
-
-        num.innerText = currentNum + 1;
-        setTimeout(() => {
-            updateCount(num, maxNum);
-        }, 75);
-
-    }
 }
 
 /* --------------- Grab elements from DOM --------------- */
@@ -61,14 +56,24 @@ let sr = ScrollReveal({
     distance: "60px"
 });
 
-sr.reveal(".showcase-info", { delay: 300 });
-sr.reveal(".showcase-image", { origin: "top", delay: 300 });
+sr.reveal(".showcase-info", { delay: 700 });
+sr.reveal(".showcase-image", { origin: "top", delay: 650 });
 
 /* --------------- Skills Progress Bar Animation --------------- */
 
 
 
 let skillsPlayed = false;
+
+function updateCount(num, maxNum) {
+    let currentNum = +num.innerText;
+    if (currentNum < maxNum) {
+        num.innerText = currentNum + 1;
+        setTimeout(() => {
+            updateCount(num, maxNum);
+        }, 12);
+    }
+}
 
 function skillCounter() {
     if (!hasReached(first_skill)) return;
@@ -93,6 +98,19 @@ function skillCounter() {
 
 let mlPlayed = false;
 
+function updateCountMl(num, maxNum) {
+
+    let currentNum = +num.innerText;
+    if (currentNum < maxNum) {
+
+        num.innerText = currentNum + 1;
+        setTimeout(() => {
+            updateCountMl(num, maxNum);
+        }, 75);
+
+    }
+}
+
 function mlCounter() {
     if (!hasReached(ml_section)) return;
 
@@ -108,7 +126,55 @@ function mlCounter() {
 
 /* --------------- Portfolio Filter Animation --------------- */
 
+let mixer = mixitup('.portifolio-gallery');
+
+
 /* --------------- Modal Pop Up Animation Animation --------------- */
+
+let currentIndex = 0;
+
+function changeImage(index) {
+    images.forEach((img) => img.classList.remove("showImage"));
+    //console.log(images[index]);
+    images[index].classList.add("showImage")
+
+}
+
+prev_btn.addEventListener("click", () => {
+    if (currentIndex === 0) {
+        currentIndex = 5;
+    } else {
+        currentIndex--;
+    }
+    // console.log(currentIndex);
+    changeImage(currentIndex);
+})
+
+next_btn.addEventListener("click", () => {
+    if (currentIndex === 5) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    // console.log(currentIndex);
+    changeImage(currentIndex);
+})
+
+zoom_icons.forEach((inc, i) =>
+    inc.addEventListener("click", () => {
+        prt_section.classList.add("open");
+        document.body.classList.add("stopScrolling");
+        currentIndex = i;
+        changeImage(currentIndex);
+    })
+);
+
+modal_overlay.addEventListener("click", () => {
+    prt_section.classList.remove("open");
+    document.body.classList.remove("stopScrolling");
+})
+
+
 
 /* --------------- Modal Pop Up Animation Animation --------------- */
 

@@ -50,6 +50,11 @@ body {
   background-color: var(--bg-color);
 }
 
+body.stopScrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 ::selection {
   background-color: hsla(var(--hue-1), 100%, 60%, 0.9);
   color: #fff;
@@ -135,6 +140,17 @@ ul {
 
 .wave {
   width: 120px;
+}
+
+.btn.secondary-btn.sm {
+  padding: 0.07rem 0.1rem;
+  font-size: 0.78rem;
+  border-bottom-width: 2px;
+}
+
+.btn.secondary-btn.sm::before {
+  height: 2px;
+  bottom: -2px;
 }
 
 
@@ -698,6 +714,13 @@ header.scrolled .logo {
 
 /* --------------- Portfolio Section Styling --------------- */
 
+
+/* Textos */
+
+.portifolio .container {
+  transition: .4s;
+}
+
 .portifolio-header {
   display: flex;
   align-items: flex-end;
@@ -708,6 +731,9 @@ header.scrolled .logo {
 .portifolio-title {
   padding-bottom: 1rem;
 }
+
+
+/* Botões da galeria */
 
 .filter-btn {
   display: inline-block;
@@ -724,6 +750,9 @@ header.scrolled .logo {
   text-transform: uppercase;
 }
 
+
+/* Galeria portifólio */
+
 .portifolio-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -739,14 +768,16 @@ header.scrolled .logo {
   grid-template-rows: 1fr auto;
 }
 
-.prt-img {
+.prt-image {
+  position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
-.prt-img img {
+.prt-image img {
   width: 105%;
 }
 
@@ -763,15 +794,130 @@ header.scrolled .logo {
   text-transform: capitalize;
 }
 
-.btn.secondary-btn.sm {
-  padding: 0.07rem 0.1rem;
-  font-size: 0.78rem;
-  border-bottom-width: 2px;
+.prt-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: .5s;
 }
 
-.btn.secondary-btn.sm::before {
-  height: 2px;
-  bottom: -2px;
+.prt-image:hover .prt-overlay {
+  pointer-events: auto;
+  background-color: var(--bg-color-transparent);
+  backdrop-filter: blur(10px);
+}
+
+.prt-icon {
+  color: var(--heading-color);
+  font-size: 1.1rem;
+  margin: 0 0.4rem;
+  background-color: var(--main-color-2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  transform: translateY(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.prt-icon:hover {
+  background-color: var(--main-color-dark-2);
+}
+
+.prt-image:hover .prt-icon {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: .3s var(--i);
+}
+
+.filter-btn.mixitup-control-active {
+  color: var(--main-color-1);
+}
+
+
+/* popup das imagens */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.slider-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 400px));
+  width: 90%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  align-items: center;
+  justify-items: center;
+  opacity: 0;
+}
+
+.slider-wrap img {
+  width: 100%;
+  display: none;
+  border-radius: 10px;
+}
+
+.navigation {
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.slider-wrap img.showImage {
+  display: block;
+}
+
+.portifolio.open .modal {
+  pointer-events: auto;
+}
+
+.portifolio.open .modal-overlay {
+  opacity: 1;
+}
+
+.portifolio.open .container {
+  transform: scale(.9);
+}
+
+.portifolio.open .slider-wrap {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: .45s, .1s;
 }
 
 

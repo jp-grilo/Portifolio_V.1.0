@@ -517,6 +517,25 @@
     </section>
 
     <section class="portifolio section">
+      <div class="modal">
+        <div class="modal-overlay"></div>
+        <div class="slider-wrap">
+          <div class="prev-btn navigation">
+            <i class="uil uil-angle-left-b"></i>
+          </div>
+          <div class="images">
+            <img src="./assets/port1.jpg">
+            <img src="./assets/port2.png">
+            <img src="./assets/port3.jpg">
+            <img src="./assets/port4.png">
+            <img src="./assets/port5.png">
+            <img src="./assets/port6.jpg">
+          </div>
+          <div class="next-btn navigation">
+            <i class="uil uil-angle-right-b"></i>
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div class="portifolio-header">
           <div class="portifolio-title">
@@ -524,61 +543,109 @@
             <h1 class="heading">Ultimos projetos</h1>
           </div>
           <div class="filter-btns">
-            <button class="filter-btn">Todods</button>
-            <button class="filter-btn">Produtos</button>
-            <button class="filter-btn">Interação</button>
-            <button class="filter-btn">Projetos web</button>
+            <button class="filter-btn" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter=".product">Produtos</button>
+            <button class="filter-btn" data-filter=".inter">Interação</button>
+            <button class="filter-btn" data-filter=".web">Projetos web</button>
           </div>
         </div>
         <div class="portifolio-gallery">
-          <div class="prt-card">
-            <div class="prt-img">
-              <img src="assets/port1.jpg" alt="">
+          <div class="mix prt-card product">
+            <div class="prt-image">
+              <img src="./assets/port1.jpg" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Olido interaction</h3>
               <a href="#" class="btn secondary-btn sm">Ler mais</a>
             </div>
           </div>
-          <div class="prt-card">
-            <div class="prt-img">
-              <img src="assets/port2.png" alt="">
+          <div class="mix prt-card inter">
+            <div class="prt-image">
+              <img src="./assets/port2.png" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Samambaia tela</h3>
               <a href="#" class="btn secondary-btn sm">Ler mais</a>
             </div>
           </div>
-          <div class="prt-card">
-            <div class="prt-img">
-              <img src="assets/port3.jpg" alt="">
+          <div class="mix prt-card product">
+            <div class="prt-image">
+              <img src="./assets/port3.jpg" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Mac setup</h3>
               <a href="#" class="btn secondary-btn sm">Ler mais</a>
             </div>
           </div>
-          <div class="prt-card">
-            <div class="prt-img">
+          <div class="mix prt-card web">
+            <div class="prt-image">
               <img src="assets/port4.png" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Desenhos projetos</h3>
               <a href="#" class="btn secondary-btn sm">Ler mais</a>
             </div>
           </div>
-          <div class="prt-card">
-            <div class="prt-img">
-              <img src="assets/port5.png" alt="">
+          <div class="mix prt-card web">
+            <div class="prt-image">
+              <img src="./assets/port5.png" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Caderninho</h3>
               <a href="#" class="btn secondary-btn sm">Ler mais</a>
             </div>
           </div>
-          <div class="prt-card">
-            <div class="prt-img">
-              <img src="assets/port6.jpg" alt="">
+          <div class="mix prt-card inter">
+            <div class="prt-image">
+              <img src="./assets/port6.jpg" alt="">
+              <div class="prt-overlay">
+                <span class="zoom-icon prt-icon" style="--i: 0s">
+                  <i class="uil uil-search-plus"></i>
+                </span>
+                <a href="#" class="prt-icon" style="--i: .15s">
+                  <i class="uil uil-link-h"></i>
+                </a>
+              </div>
             </div>
             <div class="prt-desc">
               <h3>Quadro postits</h3>
@@ -593,7 +660,10 @@
 
   <!--  JS Files  -->
 
+  <script src="./js/mixitup.min.js"></script>
+  <!-- SEMPRE NO FINAL -->
   <script src="./js/app.js"></script>
+
 
 </body>
 
