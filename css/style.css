@@ -1132,6 +1132,22 @@ textarea.form-input {
   min-height: 150px;
 }
 
+.contact .square {
+  position: absolute;
+  left: 20%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 80px;
+}
+
+.contact .triangle {
+  position: absolute;
+  left: 90%;
+  top: 98%;
+  transform: translate(-50%, -50%);
+}
+
 
 /* --------------- Subscription Section Styling --------------- */
 
