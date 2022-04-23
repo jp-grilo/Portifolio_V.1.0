@@ -174,9 +174,18 @@ modal_overlay.addEventListener("click", () => {
     document.body.classList.remove("stopScrolling");
 })
 
-
-
 /* --------------- Modal Pop Up Animation Animation --------------- */
+
+const swiper = new Swiper('.swiper', {
+
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+});
 
 /* --------------- Change Active Link On Scroll --------------- */
 

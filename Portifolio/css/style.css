@@ -142,6 +142,10 @@ ul {
   width: 120px;
 }
 
+.x {
+  width: 65px;
+}
+
 .btn.secondary-btn.sm {
   padding: 0.07rem 0.1rem;
   font-size: 0.78rem;
@@ -249,6 +253,7 @@ header.scrolled .logo {
   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
   margin-right: 2.47%;
+  transform: translate(32%, 0%);
 }
 
 .toggle-btn:hover {
@@ -922,6 +927,114 @@ header.scrolled .logo {
 
 
 /* --------------- Testimonials Section Styling --------------- */
+
+.testemonials {
+  padding: var(--section-padding) 0 calc(var(--section-padding) + 120px);
+}
+
+.testemonials .container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+}
+
+.swiper {
+  width: 96%;
+  margin-left: 75px;
+  background-color: var(--bg-color-2);
+  border-radius: 15px;
+  padding: 2rem 0 2.5rem;
+}
+
+.swiper-slide {
+  padding: 0 2.5rem;
+}
+
+.client {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.client img {
+  width: 100%;
+}
+
+.client-info h4 {
+  font-weight: 500;
+  color: var(--heading-color);
+  margin-bottom: .4rem;
+  font-size: 1.05rem;
+}
+
+.client-info h5 {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: .8rem;
+}
+
+.client-info h5 a {
+  color: var(--main-color-1);
+}
+
+.swiper-slide .text {
+  display: block;
+  margin: 1rem 0;
+}
+
+.testemonials-title {
+  padding-left: 5rem;
+}
+
+.testemonials-title>* {
+  color: #fff;
+}
+
+.section-background {
+  position: absolute;
+  overflow: hidden;
+  width: 81vw;
+  max-width: 75rem;
+  top: 15px;
+  height: calc(100% + 120px);
+  left: 50%;
+  transform: translateX(calc(-50% + 120px));
+  background-image: linear-gradient(55deg, var(--main-color-2) 20%, var(--main-color-1) 20%);
+  border-bottom-left-radius: 60px;
+  z-index: -1;
+}
+
+.section-background .person {
+  position: absolute;
+  height: 360px;
+  bottom: 0;
+  right: 0;
+}
+
+.section-background .circle {
+  position: absolute;
+  width: 170px;
+  top: 90%;
+  left: 25%;
+  transform: translate(-47%, -43%);
+}
+
+.section-background .x {
+  position: absolute;
+  top: 5%;
+  left: 90%;
+  transform: translate(-12%, -30%);
+}
+
+.section-background .square {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 90%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
 
 
 /* --------------- Contact Section Styling --------------- */
