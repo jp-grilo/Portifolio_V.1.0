@@ -980,7 +980,27 @@ header.scrolled .logo {
 
 .swiper-slide .text {
   display: block;
-  margin: 1rem 0;
+  margin: 3rem 0;
+}
+
+.swiper-pagination {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--main-color-1);
+  opacity: 0.3;
+  width: 7px;
+  height: 7px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 11px;
+  height: 11px;
 }
 
 .testemonials-title {
@@ -1018,13 +1038,6 @@ header.scrolled .logo {
   top: 90%;
   left: 25%;
   transform: translate(-47%, -43%);
-}
-
-.section-background .x {
-  position: absolute;
-  top: 5%;
-  left: 90%;
-  transform: translate(-12%, -30%);
 }
 
 .section-background .square {
