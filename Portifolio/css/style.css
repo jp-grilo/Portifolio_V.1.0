@@ -45,6 +45,10 @@ body.dark {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-color);
@@ -260,11 +264,13 @@ header.scrolled .logo {
   transition: 0.3s;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--heading-color);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
   opacity: 0.2;
 }
@@ -1198,6 +1204,43 @@ textarea.form-input {
 
 
 /* --------------- Footer Styling --------------- */
+
+footer {
+  padding: 4rem 0;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer .social-media {
+  display: flex;
+}
+
+footer .copyright {
+  padding-left: 10rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 1rem;
+  background-color: var(--bg-color-1);
+  color: var(--text-color);
+  transition: .3s;
+}
+
+.social-link:hover {
+  color: var(--main-color-1);
+  transform: scale(1.3);
+}
 
 
 /* --------------- 1000px Screens --------------- */

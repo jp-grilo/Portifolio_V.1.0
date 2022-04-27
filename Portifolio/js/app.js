@@ -3,17 +3,16 @@
 // Navbar
 const header = document.querySelector("header");
 
-// Animação dos circulos
+// Skills Progress Bar Animation
 const first_skill = document.querySelector(".skill:first-child");
 const sk_counters = document.querySelectorAll(".counter span");
 const progress_bars = document.querySelectorAll(".skills svg circle");
 
-// Animação trabalhos feitos
+// Services Counter Animation
 const ml_section = document.querySelector(".milestones");
 const ml_counters = document.querySelectorAll(".number span");
 
-// Animação popup portifólio
-
+// Portfolio Filter Animation
 const prt_section = document.querySelector(".portifolio");
 const zoom_icons = document.querySelectorAll(".zoom-icon");
 const modal_overlay = document.querySelector(".modal-overlay");
@@ -21,11 +20,15 @@ const images = document.querySelectorAll(".images img");
 const next_btn = document.querySelector(".next-btn");
 const prev_btn = document.querySelector(".prev-btn");
 
+// Change Active Link On Scroll
+const links = document.querySelectorAll(".nav-link");
+
 /* --------------- Events --------------- */
 
 window.addEventListener("scroll", stickyNavbar);
 
 window.addEventListener("scroll", () => {
+    activeLink();
     if (!skillsPlayed) skillCounter();
     if (!mlPlayed) mlCounter();
 })
@@ -60,8 +63,6 @@ sr.reveal(".showcase-info", { delay: 700 });
 sr.reveal(".showcase-image", { origin: "top", delay: 650 });
 
 /* --------------- Skills Progress Bar Animation --------------- */
-
-
 
 let skillsPlayed = false;
 
@@ -190,6 +191,21 @@ const swiper = new Swiper('.swiper', {
 });
 
 /* --------------- Change Active Link On Scroll --------------- */
+
+function activeLink() {
+    let sections = document.querySelectorAll("section[id]");
+    let passedSections = Array.from(sections).map((sct, i) => {
+        return {
+            y: sct.getBoundingClientRect().top - header.offsetHeight,
+            id: i
+        };
+    }).filter(sct => sct.y <= 0)
+
+    let currSectionID = passedSections.at(-1).id;
+
+    links.forEach(l => l.classList.remove("active"));
+    links[currSectionID].classList.add("active");
+}
 
 /* --------------- Change Page Theme --------------- */
 
